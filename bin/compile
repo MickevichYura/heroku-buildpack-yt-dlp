@@ -17,9 +17,6 @@ chmod a+rx yt-dlp
 rm SHA2-256SUMS
 ./yt-dlp --version
 
-which yt-dlp
-file $(which yt-dlp)
-
 PROFILE_PATH="$BUILD_DIR/.profile.d/yt-dlp.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:/app/vendor/yt"' >> $PROFILE_PATH
