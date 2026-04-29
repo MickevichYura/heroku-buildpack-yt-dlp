@@ -7,11 +7,10 @@ cd vendor/yt
 
 BASE_URL="https://github.com/yt-dlp/yt-dlp/releases/latest/download"
 
-curl --location "$BASE_URL/yt-dlp" -o yt-dlp
+curl --location "$BASE_URL/yt-dlp_linux" -o yt-dlp
 curl --location "$BASE_URL/SHA2-256SUMS" -o SHA2-256SUMS
 
-# Проверяем только строку для файла yt-dlp
-grep "^[a-f0-9]*  yt-dlp$" SHA2-256SUMS | sha256sum --check
+grep "^[a-f0-9]*  yt-dlp_linux$" SHA2-256SUMS | sed 's/yt-dlp_linux/yt-dlp/' | sha256sum --check
 
 chmod a+rx yt-dlp
 rm SHA2-256SUMS
